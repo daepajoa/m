@@ -1,0 +1,43 @@
+<!-- epilogue/void/index.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>epilogue: VOID</title>
+  <style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    background: #000;
+    width: 100%;
+    height: auto;              /* ✅ vh 제거! */
+    overflow-y: auto;
+  }
+  #container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 20px 0;
+  }
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    cursor: pointer;
+  }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <img id="scene" src="01.png" onclick="start()" />
+  </div>
+  <audio id="bgm" src="../bgm/bgm.mp3" loop></audio>
+
+  <script>
+    function start() {
+      document.getElementById("bgm").play();
+      document.getElementById("scene").src = "02.png";
+      document.getElementById("scene").onclick = null;
+      window.scrollTo({ top: 0 });
+    }
+  </script>
+</body>
+</html>
