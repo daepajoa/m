@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>epilogue: SCARLET-TRUTH</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      background: #000;
+      width: 100%;
+      height: auto;
+      overflow-y: auto;
+    }
+    #container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 20px 0;
+    }
+    .comic-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      cursor: default;
+    }
+    #start-cover {
+      width: 100%;
+      cursor: pointer;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <img id="start-cover" src="01.webp" onclick="start()" />
+  </div>
+  <audio id="bgm" src="bgm.mp3" loop></audio>
+
+  <script>
+    const imageList = [
+      "02.webp", "03.webp", "04.webp", "05.webp"
+    ];
+
+    function start() {
+      document.getElementById("bgm").play();
+
+      const container = document.getElementById("container");
+      const cover = document.getElementById("start-cover");
+      container.removeChild(cover);
+
+      for (let i = 0; i < imageList.length; i++) {
+        const img = document.createElement("img");
+        img.src = imageList[i];
+        img.className = "comic-img";
+        container.appendChild(img);
+      }
+
+      window.scrollTo({ top: 0 });
+    }
+  </script>
+</body>
+</html>
